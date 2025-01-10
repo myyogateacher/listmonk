@@ -21,7 +21,7 @@ func (p *pipe) attachRateLimiter() {
 	}
 
 	p.ratelimiter = ratelimit.New(p.camp.SlidingWindowRate,
-		ratelimit.WithSlack(0),
+		ratelimit.WithoutSlack,
 		ratelimit.Per(dur),
 		ratelimit.WithClock(clock),
 	)
