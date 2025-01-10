@@ -35,6 +35,8 @@ func (c *customClock) Sleep(wait time.Duration) {
 	ticker := time.NewTicker(1 * time.Second)
 	defer ticker.Stop()
 
+	c.p.m.log.Printf("campaign: %s, pausing for: %s", c.p.camp.Name, wait.String())
+
 	for {
 		select {
 		case <-ticker.C:
